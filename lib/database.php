@@ -8,6 +8,7 @@
         public $db_user = DB_USER;
         public $db_pass = DB_PASS;
         public $db_name = DB_NAME;
+        public $db_port = DB_PORT;
 
         public $link;
         public $error;
@@ -17,7 +18,7 @@
         }
 
         private function connectDB() {
-            $this->link = new mysqli($this->db_host, $this->db_user, $this->db_pass, $this->db_name);
+            $this->link = new mysqli($this->db_host, $this->db_user, $this->db_pass, $this->db_name, $this->db_port);
             mysqli_set_charset($this->link, "utf8mb4");
             if (!$this->link) {
                 $this->error = "Connection failed: " . $this->link->connect_error;
